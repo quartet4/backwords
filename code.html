@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
-    <title>App Name: A Coding Project by Jon Mendoza</title>
+    <title>Backwords: A Coding Project by Jon Mendoza</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -102,7 +102,12 @@
               <a class="nav-link" href="_blank">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="_blank">Git Repo</a>
+              <a
+                class="nav-link"
+                href="https://github.com/quartet4/backwords"
+                target="_blank"
+                >Git Repo</a
+              >
             </li>
           </ul>
         </div>
@@ -113,25 +118,74 @@
     <main class="flex-shrink-0">
       <div class="container px-4 py-5">
         <h2 class="border-1 border-bottom border-dark mt-5">
-          The Code for App Name
+          The Code for Backwords
         </h2>
         <div class="row row-cols-1 row-cols-lg-2">
           <div class="col-lg-8">
             <pre class="line-numbers">
             <code class="language-javascript">
-              // Call Hello World
-              function HelloWorld() {
-                alert("Hello World!");
-              }
+              // Get string from the page
+// Controller
+function getValue() {
+  document.getElementById("alert").classList.add("invisible");
+
+  let userString = document.getElementById("userString").value;
+
+  let revString = reverseString(userString);
+
+  displayString(revString);
+}
+
+// Reverse the string
+// Logic
+function reverseString(userString) {
+  let revString = [];
+
+  // reverse string using a for loop
+  for (let i = userString.length - 1; i >= 0; i--) {
+    revString += userString[i];
+  }
+
+  return revString;
+}
+
+// Display the reversed string to the user
+// View
+function displayString(revString) {
+  // write to the page
+  document.getElementById("msg").innerHTML = `&lt;strong>${revString}&lt;/strong>`;
+
+  // show the alert box
+  document.getElementById("alert").classList.remove("invisible");
+}
+
               </code>
           </pre>
           </div>
           <div class="col-lg-4">
-            <p>The code is structured in one function.</p>
-            <h5>Hello World</h5>
             <p>
-              Hello World is a function that displays an alert message saying
-              "Hello World!"
+              The code is structured in three functions: controller, logic, and
+              view.
+            </p>
+            <h5>getValue()</h5>
+            <p>
+              This is called when the user clicks the "Reverse Me!" button on
+              the form. It hides the alert box, gets the string in the text
+              input, then calls the logic function to get the reversed string,
+              and finally calls the view function to display it in the alert
+              box.
+            </p>
+            <h5>reverseString(userString)</h5>
+            <p>
+              This function reverses the userString parameter via a reverse
+              traversal of the string array using a for loop, then returns the
+              reversed string.
+            </p>
+            <h5>displayString(revString)</h5>
+            <p>
+              This function puts the revString in the alert box then removes the
+              invisible class from the alert box so it becomes visible to the
+              user.
             </p>
           </div>
         </div>
